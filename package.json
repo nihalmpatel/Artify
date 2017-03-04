@@ -14,9 +14,20 @@
   "author": "Nihal Patel",
   "license": "ISC",
   "dependencies": {
+    "connect-flash": "^0.1.1",
     "ejs": "^2.5.5",
     "express": "^4.14.1",
     "mongoose": "^4.8.2",
-    "passport": "^0.3.2"
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.4",
+    "bcrypt-nodejs" : "latest",
+    "morgan": "latest",
+    "body-parser": "latest",
+    "cookie-parser": "latest",
+    "method-override": "latest",
+    "express-session": "latest"     
   }
 }
