@@ -1,0 +1,147 @@
+body{
+    background-image:url("../img/mockup.jpg");
+    background-repeat: no-repeat;
+	background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+body{
+opacity:0;
+}
+::-webkit-scrollbar {
+    width: 0px;
+	z-index:0;
+ 
+	
+	}
+.logo{
+    margin:0 0 2% 0;
+    padding-top: 1% auto;
+    
+}
+
+.nav{
+     margin: 0;
+     padding:0;
+
+}
+
+.nav ul{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    max-width: 100%;
+}
+
+.nav ul li{
+    list-style-type: none;
+    display: inline;
+    margin:0px 20px;
+    padding: 10px 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+    font-size: 25px;
+	transition:all 0.3s ease-in;
+	 border-radius:5px;
+	 
+	border-radius: 40px;
+}
+
+.nav ul li:hover{
+    list-style-type: none;
+    display: inline;
+    margin:0px 20px;
+    padding: 10px 20px;
+    background: rgba(37,37,37,0.7);
+    border-radius: 5px;
+}
+
+.nav ul li.active{
+    list-style-type: none;
+    display: inline;
+    margin:0px 20px;
+    padding: 10px 20px;
+    border-bottom:2px solid white;
+    border-radius: 8px;
+}
+
+
+.nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+#login{
+
+    height: 450px;
+    max-width: 900px;
+    background: rgba(37,37,37,0.5);
+    margin: 5% auto 2% auto;
+    border-top: 3px dashed #EA5455;
+    border-bottom: 3px dashed #ECECDA;
+    border-left: 3px dashed #BBDC2F;
+    border-right: 3px dashed #52D6D3;
+}
+
+#login .heading{
+    font-family: 'Amatic SC', cursive;
+    font-size:60px;
+    color: white;
+    text-align: center;
+    margin: 3% 0 4% 0;
+}
+
+#login .input{
+    background: rgba(37,37,37,0.6);
+    height: 50px;
+    width: 60%;
+    margin-left: 19%;
+    margin-bottom: 5%;
+    text-align: center;
+    color:white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size:30px;
+    font-weight: 300;
+    text-transform: lowercase;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+}
+
+#login .input:focus{
+    background: rgba(37,37,37,0.6);
+    height: 50px;
+    width: 60%;
+    margin-left: 19%;
+    margin-bottom: 5%;
+    color:white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size:30px;
+    text-transform: lowercase;
+    outline: none;
+    border-bottom: 2px dashed #E1F6F4;
+    border-radius: 3px;
+}
+
+.submitbtn{
+    color: white;
+    background:transparent;
+    
+    height:50px;
+    padding: 10px 10px;
+    border:2px solid white;
+    border-radius: 6px;
+    cursor:pointer;
+    outline: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    margin:0 41%;
+	
+	transition:all 0.2s ease-in;
+}
+.submitbtn:hover{
+    
+    background:rgba(255,255,255,0.2);
+
+}

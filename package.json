@@ -4,7 +4,7 @@
   "description": "Story telling app.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "keywords": [
     "stroies",
@@ -23,11 +23,14 @@
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
-    "bcrypt-nodejs" : "latest",
+    "bcrypt-nodejs": "latest",
     "morgan": "latest",
     "body-parser": "latest",
     "cookie-parser": "latest",
     "method-override": "latest",
-    "express-session": "latest"     
+    "express-session": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

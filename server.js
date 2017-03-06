@@ -7,9 +7,10 @@ const morgan        = require('morgan');
 const cookieParser  = require('cookie-parser');
 const bodyParser    = require('body-parser');
 const session       = require('express-session');
-const configDB      = require('./config/database');
+const configDB      = require('./config/database.js');
+const port          = process.env.PORT || 8080;
 
-// configuration ==============
+// mongodb configuration 
 mongooes.connect(configDB.url);
 
 // require('./config/passport')(passport); // pass passport for configuration
@@ -18,19 +19,20 @@ mongooes.connect(configDB.url);
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser()); // get information from html forms
+app.use(express.static('public'));
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(session({ secret: 'iuseartifydailybecauseiloveit' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-// routes ======================================================================
+// routes 
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
-// launch ======================================================================
+// launch 
 app.listen(port);
-console.log('The magic happens on port ' + port);
+console.log('Server is running on port:' + port);
   

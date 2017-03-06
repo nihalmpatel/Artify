@@ -1,0 +1,346 @@
+body,span,div{
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    margin:0 0 2% 0;
+    padding-top: 1% auto;
+    
+}
+body{
+margin:0;
+padding: 0;
+}
+
+/* for index.html */
+
+#home{
+    background-size:cover;	
+    background-image:url("../img/bg.jpg");
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    height:100%;
+    border-bottom: 3px dashed #54447B;
+}
+
+.nav{
+     margin: 0;
+     padding:0;
+
+}
+
+.nav ul{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    max-width: 100%;
+}
+
+.nav ul li{
+    list-style-type: none;
+    display: inline;
+    margin:0px 20px;
+    padding: 10px 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+    font-size: 25px;
+	border-radius: 40px;
+}
+
+.nav ul li:hover{
+   overflow:hidden;
+   transition:all 0.3s ease-in;
+    list-style-type: none;
+    display: inline;
+    margin:0px 20px;
+    padding: 10px 20px;
+    background: rgba(148,250,77,0.4);
+    border-radius:5px;
+	box-shadow:0 0 5px rgba(148,250,77,0.1);
+}
+
+.nav ul li.active{
+
+   transition:all 0.3s ease-in;
+    border-bottom:2px solid white;
+    border-radius: 8px;
+}
+
+
+.nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+.content{
+    
+    max-height: 100%;
+    max-width: 400px;
+    margin: 10% 0 0 10%;
+}
+
+.heading{
+
+    color: white;
+    font-family: 'Amatic SC', cursive;
+ }
+
+.details{
+    color: white;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    padding-left:15%;
+}
+
+span {
+    display: block;
+    font-size: 60px;
+}
+
+
+
+#features1{
+    background-image:url("../img/bg4.jpg");
+    background-attachment: fixed;
+	background-size:cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    height:90%;
+    border-bottom: 3px dashed #EDF798;
+	height:100%;
+}
+ 
+.content2{
+    
+    max-height: 100%;
+    max-width: 400px;
+    padding-top: 10%;
+    margin-left: 10%;
+}
+
+#features2{
+    background-image:url("../img/bg5.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+	background-size:cover;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    height:90%;
+    border-bottom: 3px dashed #EF5353; 
+	height:100%;
+    
+}
+
+.content3{
+    max-height: 100%;
+    max-width: 400px;
+    float: right;
+    margin-right: 10%; 
+    padding-top: 10%;
+}
+
+
+#features3{
+    background-image:url("../img/mockup.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    height:80%;
+	background-size:cover;
+    
+}
+
+.text4{
+     color: white;
+     font-family: 'Amatic SC', cursive;
+     font-size:50px;
+     margin-left: 130px; 
+     padding-top: 100px; 
+}
+
+.details4{
+    color: white;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    margin-left: 130px; 
+    padding: 10px 900px 10px 130px;
+}
+
+#contactus{
+background-size:cover;
+    background: #363B4E;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    height:85%;
+    border-top: 3px dashed #FFCB3C;
+    border-bottom: 3px dashed #F07B3F;
+}
+
+fieldset{
+    border:none;
+    display:inline;
+}
+
+#contactus .heading{
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-size:60px;
+    padding-top:2%;
+    margin-bottom: 1%;
+}
+
+.input{
+    height: 50px;
+    width:75%;
+    margin: 5% 0% 4% 0%;
+    padding: 10px 50px;
+    color:#363B4E;
+    font-family:'Indie Flower', cursive;
+    font-size:20px;
+    font-weight: 900;
+    text-transform: lowercase;
+    outline: none;
+	border:none;
+	border-radius:5px;
+}
+
+.textarea1	
+{	
+    border:none;
+	border-radius:5px;
+    height: 200px;
+    width:75%;
+    margin: 2% 0% 6% 0%;
+    padding: 10px 50px;
+    color:#363B4E;
+    font-family:'Indie Flower', cursive;
+    font-size:20px;
+    font-weight: 900;
+    resize: none;
+    overflow: hidden;
+    outline: none;
+}
+
+.submitbtn{
+    color: white;
+    background:transparent;
+    width: 120px;
+    height:50px;
+    padding: 10px 10px;
+    border:2px solid white;
+    border-radius: 6px;
+    cursor:pointer;
+    outline: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+}
+
+.submitbtn:hover{
+    transition:all 0.3s ease-in;
+    background:rgba(255,255,255,0.2);
+}
+
+#contactdetails{
+background-size:cover;
+    background-image:url("../img/getintouch.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    height:90%;
+}
+
+#contactdetails .heading{
+    float: right;
+    margin:5% 10% 0 0;
+}
+
+div.goup{
+
+background-image:url("../img/goup.png");
+position:fixed;
+bottom:10;
+right:10;
+width:50px;
+height: 50px;
+transition:all 1s;
+}
+
+div.goup:hover
+{
+    transition:all 1s;
+}
+
+#aboutus{
+    background:#57385C;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    height:auto;
+    border-top: 3px dashed #94DD4D;
+}
+
+
+#aboutus .heading{
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-size:60px;
+    padding-top:1%;
+
+}
+
+#aboutus .bio{
+    height: auto;
+    max-width: 380px;
+    display: inline-block;
+    margin: 2% auto 5% 5%;
+/*    border: 1px solid white; */
+}
+#aboutus .bio:hover
+{
+border-radius:10px;
+ transition:all 0.3s ease-in;
+background:rgba(255,255,255,0.1);
+
+}
+.bio.../img{
+    margin: 2% 28%;
+}
+
+.name{
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-size:35px;
+    color: white;
+    text-indent: -30;
+}
+
+.biodetails{
+    text-align:justify;
+    font-family: 'Amatic SC', cursive;
+    font-size:25px;
+    color: white;
+    margin: 0 auto;
+    padding: 5% 2% 1% 2%;
+/*    border: 1px solid white; */
+}
+
+.copyright{
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size:18px;
+    color: white;
+    padding-bottom: 0.5%;
+    text-decoration: none;
+}
+

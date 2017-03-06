@@ -1,0 +1,52 @@
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">	
+    <title>Trippe' Signup</title>
+    <link href="css/signup.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:300,400' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="img/trippe-favicon1.png"> 
+    <script src="js/signupvalidation.js"> </script>
+    
+</head>
+<script type="text/javascript">
+function bgop()
+{
+ document.body.style.opacity ="1";
+
+	 document.body.style.transition="all 1s";
+}
+
+</script>
+<body onload="bgop();">
+        
+        <div class="logo">
+        <center><a href="/"><img src="img/logo.png"> </a>
+        </div>
+    
+        <div class="nav">
+            <ul>
+            <li ><a href="/">Home</a></li>
+            <li><a href="/#features1">Features</a></li>
+            <li><a href="/#contactus">Contact Us</a></li>
+            <li><a href="/#aboutus">About Us</a></li>
+            <li><a href="/login">Login</a></li>
+            <li class="active"><a href="/signup">Signup</a></li>
+            </ul>
+        </div>
+        
+        <div id="signup">
+            <div class="heading">
+            <span>Signup. It's Free!</span>
+            </div>
+            
+            <input type="text" class="input" id="username" placeholder="Enter username">
+            <input type="text" class="input" id="email" placeholder="Enter email">
+            <input type="password" class="input" id="pass" placeholder="Enter password">
+            <input type="password" class="input" id="cpass" placeholder="Confirm password">
+          <center>  <input type="button" class="submitbtn" onclick="signupvalidation()" value="Signup">
+        </div>
+
+</body>
+</html>

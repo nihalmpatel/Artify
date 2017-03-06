@@ -1,0 +1,51 @@
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">	
+    <title>Trippe' Login</title>
+    <link href="css/login.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:300,400' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="img/trippe-favicon1.png"> 
+    <!--<script src="js/loginvalidation.js"> </script> -->
+    
+</head>
+<script type="text/javascript">
+function bgop()
+{
+ document.body.style.opacity ="1";
+
+	 document.body.style.transition="all 1s";
+}
+
+</script>
+<body onload="bgop();">
+        
+        <div class="logo">
+          <center> <a href="/"><img src="img/logo.png"> </a>
+        </div>
+    
+            <div class="nav">
+            <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#features1">Features</a></li>
+            <li><a href="/#contactus">Contact Us</a></li>
+            <li><a href="/#aboutus">About Us</a></li>
+            <li class="active"><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+            </ul>
+        </div>
+        
+        <form name="login" method="post">
+            <div id="login">
+                <div class="heading">
+                <span>Login Here</span>
+                </div>
+                
+                <input type="text" class="input" id="username" name="username" placeholder="Your username goes here">
+                <input type="password" class="input" id="pass" name="pass" placeholder="Your password goes here">
+            <center> <input type="submit" class="submitbtn" onclick="loginvalidation()" value="Login">
+            </div>
+        </form>
+</body>
+</html>
