@@ -38,14 +38,16 @@ function bgop()
         
         <div id="signup">
             <div class="heading">
-            <span>Signup. It's Free!</span>
+                <span>Signup. It's Free!</span>
             </div>
             
-            <input type="text" class="input" id="username" placeholder="Enter username">
-            <input type="text" class="input" id="email" placeholder="Enter email">
-            <input type="password" class="input" id="pass" placeholder="Enter password">
-            <input type="password" class="input" id="cpass" placeholder="Confirm password">
-          <center>  <input type="button" class="submitbtn" onclick="signupvalidation()" value="Signup">
+            <form name="signup" method="post">
+                <input type="text" class="input" id="username" name="username" placeholder="Enter username">
+                <input type="text" class="input" id="email" name="email" placeholder="Enter email">
+                <input type="password" class="input" id="pass" name="password" placeholder="Enter password">
+                <input type="password" class="input" id="cpass" name="cpassword" placeholder="Confirm password">
+                <center>  <input type="submit" class="submitbtn" value="Signup"> </center>
+            </form>
         </div>
 
 </body>
