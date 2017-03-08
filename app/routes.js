@@ -68,7 +68,29 @@ module.exports= function(app,passport) {
     });
 
     app.post('/login',function(req,res){
-        res.send(req.body.username);
+
+        user.find({'local.username':req.body.username},function(err,users){
+
+            if (err) throw err;
+
+            //checking if user doesn't exist
+            if (users.length==0){
+                res.send('User doesn\'t exist!');
+            }
+
+            else{
+
+                if(users[0].local.password===req.body.password){
+                    res.send('Welcome '+req.body.username);
+                }
+
+                else{
+                    
+                    res.send('Invalid password!');
+                }
+            }
+        }); 
+        
     });
 
 
