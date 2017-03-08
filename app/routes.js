@@ -26,30 +26,40 @@ module.exports= function(app,passport) {
             if (err) throw err;
 
             //checking if user already exists 
-            else if (users[0].local.username==req.body.username){
+            else if (users.length!==0){
                 res.send('User already exists!');
             } 
 
-            else {
-               //console.log('aaaaa');                
-                var us=new user({
-                    local:{
-                        username : req.body.username,
-                        password : req.body.password,
-                        email : req.body.email, 
-                    },
-                    profile:{
-                        firstname: '',
-                        lastname: '',
+            else {   
+                // check if email id already exists
+                user.find({'local.email':req.body.email},function(err,users){
+                    if (err) throw err;
+
+                    else if (users.length!==0){
+                        res.send('An account exists with the entered email!');
+                    }
+
+                    // if everything is fine, register the user
+                    else{
+                        var us=new user({
+                            local:{
+                                username : req.body.username,
+                                password : req.body.password,
+                                email : req.body.email, 
+                            },
+                            profile:{
+                                firstname: '',
+                                lastname: '',
+                            }
+                        });
+                
+                        us.save(function(err){
+                            if (err) throw (err);
+                            res.send('Signup Successful!');
+                        });
                     }
                 });
         
-                us.save(function(err){
-                    if (err) throw (err);
-                    res.send('Signup Successful!');
-                });
-
-                //res.render('signup.ejs');
             } 
             
         });
