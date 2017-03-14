@@ -1,5 +1,6 @@
 // config/database.js
 
-module.exports={    
-    url:"mongodb://localhost/artifydb"
+module.exports={   
+    secret: 'iuseartifydailybecauseiloveit',
+    url: 'mongodb://localhost/artifydb'
 }

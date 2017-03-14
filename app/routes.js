@@ -2,8 +2,7 @@
 
 const user=require('./models/user.js');
 
-
-module.exports= function(app,passport) {
+module.exports= function(app) {
 
     // HOME PAGE (with login links) 
     app.get('/',function(req,res){
@@ -12,12 +11,55 @@ module.exports= function(app,passport) {
         //res.send('hi!');
     });
 
+    var test=function(req,res,next){
+
+        // check header or url parameters or post parameters for token
+        var token = req.body.token || req.query.token || req.headers['x-access-token'];
+
+        // decode token
+        if (token){
+
+            // verifies secret and checks exp
+            jwt.verify(token, app.get('superSecret'), function(err, decoded) {      
+            if (err) {
+                return res.json({ success: false, message: 'Failed to authenticate token.' });    
+            } else {
+                // if everything is good, save to request for use in other routes
+                req.decoded = decoded; 
+                console.log("Token accepted: "+decoded);
+                next();
+            }
+            });
+
+        } 
+        else{
+            
+                //res.redirect('/login');
+        
+            // if there is no token
+            // return an error
+            return res.status(403).send({ 
+                success: false, 
+                message: 'No token provided.' 
+            }); 
+            
+        } 
+    };
+
     app.get('/login',function(req,res){
         res.render('login.ejs');
     });
 
     app.get('/signup',function(req,res){
         res.render('signup.ejs');
+    });
+
+    app.get('/stories',test,function(req,res){
+        res.send('stories will available here.');
+    });
+
+    app.get('/new-story',function(req,res){
+        res.render('new-story.ejs');
     });
 
     app.post('/signup',function(req,res){
@@ -55,7 +97,8 @@ module.exports= function(app,passport) {
                 
                         us.save(function(err){
                             if (err) throw (err);
-                            res.send('Signup Successful!');
+                            res.send("Signup successful!");
+                            
                         });
                     }
                 });
@@ -79,13 +122,15 @@ module.exports= function(app,passport) {
             }
 
             else{
-
+                
                 if(users[0].local.password===req.body.password){
-                    res.send('Welcome '+req.body.username);
+                    //res.send('Welcome '+req.body.username);
+                    var token=app.get('jwtoken').sign(users[0],app.get('superSecret'),{expiresIn:'24h'});
+                    console.log(token);
+                    res.redirect('/stories');
                 }
 
                 else{
-                    
                     res.send('Invalid password!');
                 }
             }
