@@ -138,5 +138,9 @@ module.exports= function(app) {
         
     });
 
+    app.post('/publish',function(req,res){
+        res.send('Published!');
+    });
+
 
 }

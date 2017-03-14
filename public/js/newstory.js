@@ -53,10 +53,17 @@ $(document).ready(function() {
 
 
     // your content will be saved locally
-    document.querySelector('#description,#title').addEventListener('keyup', function() {
+    document.querySelector('#description').addEventListener('keyup', function() {
 
-        console.log(description.textContent);
-        console.log(title.textContent);
+        window.localStorage.setItem('description', description.textContent);
+        window.localStorage.setItem('title', title.textContent);
+        window.localStorage.setItem('timestamp', (new Date()).getTime());
+
+        updateLog(true);
+
+    }, false);
+
+    document.querySelector('#title').addEventListener('keyup', function() {
 
         window.localStorage.setItem('description', description.textContent);
         window.localStorage.setItem('title', title.textContent);
@@ -84,9 +91,9 @@ $(document).ready(function() {
 
                 setTimeout(function() {
 
-                    log.textContent = '';
+                    log.textContent = 'Draft.';
 
-                }, 3000);
+                }, 3000); 
 
             } else {
 
@@ -103,7 +110,13 @@ $(document).ready(function() {
 })();
 
 
+// PUBLISH Post
 
+$('#publish').click(function() { 
+
+     $.post("/publish");
+
+});
 
 
 
