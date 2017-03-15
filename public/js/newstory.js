@@ -1,6 +1,9 @@
 
 $(document).ready(function() {
 
+    // Tooltip
+    $('[data-toggle="tooltip"]').tooltip(); 
+
     // WYSIWYG toolbar
 
     $('.toolbar a').click(function(e) {
@@ -42,10 +45,10 @@ $(document).ready(function() {
     var description = document.querySelector('#description');
 
     // place content from previous edit
-    if (!description.textContent || !title.textContent) {
+    if (!description.innerHTML || !title.innerHTML) {
 
-        description.textContent = window.localStorage.getItem('description');
-        title.textContent = window.localStorage.getItem('title');
+        description.innerHTML = window.localStorage.getItem('description');
+        title.innerHTML = window.localStorage.getItem('title');
 
     }
 
@@ -55,8 +58,8 @@ $(document).ready(function() {
     // your content will be saved locally
     document.querySelector('#description').addEventListener('keyup', function() {
 
-        window.localStorage.setItem('description', description.textContent);
-        window.localStorage.setItem('title', title.textContent);
+        window.localStorage.setItem('description', description.innerHTML);
+        window.localStorage.setItem('title', title.innerHTML);
         window.localStorage.setItem('timestamp', (new Date()).getTime());
 
         updateLog(true);
@@ -65,8 +68,8 @@ $(document).ready(function() {
 
     document.querySelector('#title').addEventListener('keyup', function() {
 
-        window.localStorage.setItem('description', description.textContent);
-        window.localStorage.setItem('title', title.textContent);
+        window.localStorage.setItem('description', description.innerHTML);
+        window.localStorage.setItem('title', title.innerHTML);
         window.localStorage.setItem('timestamp', (new Date()).getTime());
 
         updateLog(true);
@@ -112,10 +115,31 @@ $(document).ready(function() {
 
 // PUBLISH Post
 
-$('#publish').click(function() { 
+$('#publish').click(function(e) { 
 
-     $.post("/publish");
+var title=$('h2').text();
+var descr=$('p').text();
 
+var data = {};
+data.title = title;
+data.descr = descr;
+
+e.preventDefault();
+    $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/publish",
+            timeout: 2000,
+            data: data,
+            success: function(data) {
+                //show content
+                alert('Article Published!')
+            },
+            error: function(jqXHR, textStatus, err) {
+                //show error message
+                alert('text status '+textStatus+', err '+err)
+            } 
+        });
+     
 });
 
 
