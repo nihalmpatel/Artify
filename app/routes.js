@@ -12,7 +12,7 @@ module.exports= function(app) {
         //res.send('hi!');
     });
 
-    var test=function(req,res,next){
+    /*var auth=function(req,res,next){
 
         // check header or url parameters or post parameters for token
         var token = req.body.token || req.query.token || req.headers['x-access-token'];
@@ -41,11 +41,11 @@ module.exports= function(app) {
             // return an error
             return res.status(403).send({ 
                 success: false, 
-                message: 'No token provided.' 
+                message: 'No token provided.'
             }); 
             
         } 
-    }; 
+    }; */
 
     app.get('/login',function(req,res){
         res.render('login.ejs');
@@ -55,7 +55,11 @@ module.exports= function(app) {
         res.render('signup.ejs');
     });
 
-    app.get('/stories',test,function(req,res){
+    app.get('/follow',function(req,res){
+        res.send('follow users!');
+    });
+
+    app.get('/stories',function(req,res){
         res.send('stories will available here.');
     });
 
@@ -100,7 +104,7 @@ module.exports= function(app) {
                 
                         us.save(function(err){
                             if (err) throw (err);
-                            res.send("Signup successful!");
+                            res.redirect('/login');
                             
                         });
                     }
@@ -128,8 +132,10 @@ module.exports= function(app) {
                 
                 if(users[0].local.password===req.body.password){
                     //res.send('Welcome '+req.body.username);
-                    var token=app.get('jwtoken').sign(users[0],app.get('superSecret'),{expiresIn:'24h'});
-                    console.log(token);
+                    console.log(users[0]);
+                    console.log(users);
+                    console.log(users[0].methods.generateToken());
+                    
                     res.redirect('/new-story');
                 }
 
@@ -143,46 +149,25 @@ module.exports= function(app) {
 
     app.post('/publish',function(req,res){
 
+        console.log(req.body.username)
         var ps=new post({
             title: req.body.title,
             description: req.body.descr,
-            //author: req.body.username
+            /*author: req.body.username,
+            date: 10/10/2017,
+            meta: {
+                readtime: 5,
+                likes: 20
+            },
+            comments: []*/
         });
 
         ps.save(function(err){
             if (err) throw (err);
+            res.send("Published!");
         });
 
 
     });
-
-    app.post('/login',function(req,res){
-
-        user.find({'local.username':req.body.username},function(err,users){
-
-            if (err) throw err;
-
-            //checking if user doesn't exist
-            if (users.length==0){
-                res.send('User doesn\'t exist!');
-            }
-
-            else{
-                
-                if(users[0].local.password===req.body.password){
-                    //res.send('Welcome '+req.body.username);
-                    var token=app.get('jwtoken').sign(users[0],app.get('superSecret'),{expiresIn:'24h'});
-                    console.log(token);
-                    res.redirect('/new-story');
-                }
-
-                else{
-                    res.send('Invalid password!');
-                }
-            }
-        }); 
-        
-    });
-
 
 }

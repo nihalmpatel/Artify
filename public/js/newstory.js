@@ -118,7 +118,7 @@ $(document).ready(function() {
 $('#publish').click(function(e) { 
 
 var title=$('h2').text();
-var descr=$('p').text();
+var descr=$('#description').html();
 
 var data = {};
 data.title = title;
@@ -128,7 +128,6 @@ e.preventDefault();
     $.ajax({
             type: "POST",
             url: "http://localhost:8080/publish",
-            timeout: 2000,
             data: data,
             success: function(data) {
                 //show content

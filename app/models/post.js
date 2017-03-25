@@ -14,7 +14,7 @@ var postSchema = mongoose.Schema({
         readtime:   Number,
         likes:      Number
     },
-    comments: [{commenter: String, body: String, date: Date}],*/
+    comments: [{commenter: String, body: String, date: Date}]*/
 });
 
 // =====================================================

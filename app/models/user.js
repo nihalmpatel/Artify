@@ -2,6 +2,8 @@
 
 const mongoose = require('mongoose');
 const bcrypt   = require('bcrypt-nodejs');
+const jwt      = require('jsonwebtoken');
+const configDB = require('../../config/database.js');
 
 // user Model ===========================================
 var userSchema = mongoose.Schema({
@@ -25,6 +27,7 @@ var userSchema = mongoose.Schema({
     followers       : [],
     stories         : [],
     interests       : [],
+    tokens          : [{access:String,token:String}]
 
     /*
     facebook         : {
@@ -55,6 +58,14 @@ var userSchema = mongoose.Schema({
 userSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
+
+userSchema.methods.generateToken = function(){
+    var user=this;
+    var access='auth';
+    var token=jwt.sign({_id:user._id.toHexString(),access},configDB.secret);
+    user.tokens.push(access,token);
+    console.log(token);
+}
 
 // checking if hashed password is valid
 userSchema.methods.validPassword = function(hashedPassword) {
