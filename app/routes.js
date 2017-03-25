@@ -1,6 +1,7 @@
 // app/routes.js
 
 const user=require('./models/user.js');
+const post=require('./models/post.js');
 
 module.exports= function(app) {
 
@@ -44,7 +45,7 @@ module.exports= function(app) {
             }); 
             
         } 
-    };
+    }; 
 
     app.get('/login',function(req,res){
         res.render('login.ejs');
@@ -63,6 +64,8 @@ module.exports= function(app) {
     });
 
     app.post('/signup',function(req,res){
+
+        console.log(user.schema.methods.generateHash('abcd'));
 
         user.find({'local.username':req.body.username},function(err,users){
             if (err) throw err;
@@ -127,7 +130,7 @@ module.exports= function(app) {
                     //res.send('Welcome '+req.body.username);
                     var token=app.get('jwtoken').sign(users[0],app.get('superSecret'),{expiresIn:'24h'});
                     console.log(token);
-                    res.redirect('/stories');
+                    res.redirect('/new-story');
                 }
 
                 else{
@@ -139,7 +142,46 @@ module.exports= function(app) {
     });
 
     app.post('/publish',function(req,res){
-        res.send('Published!');
+
+        var ps=new post({
+            title: req.body.title,
+            description: req.body.descr,
+            //author: req.body.username
+        });
+
+        ps.save(function(err){
+            if (err) throw (err);
+        });
+
+
+    });
+
+    app.post('/login',function(req,res){
+
+        user.find({'local.username':req.body.username},function(err,users){
+
+            if (err) throw err;
+
+            //checking if user doesn't exist
+            if (users.length==0){
+                res.send('User doesn\'t exist!');
+            }
+
+            else{
+                
+                if(users[0].local.password===req.body.password){
+                    //res.send('Welcome '+req.body.username);
+                    var token=app.get('jwtoken').sign(users[0],app.get('superSecret'),{expiresIn:'24h'});
+                    console.log(token);
+                    res.redirect('/new-story');
+                }
+
+                else{
+                    res.send('Invalid password!');
+                }
+            }
+        }); 
+        
     });
 
 
