@@ -59,12 +59,12 @@ userSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-userSchema.methods.generateToken = function(){
+userSchema.methods.generateAuthToken = function(){
     var user=this;
     var access='auth';
     var token=jwt.sign({_id:user._id.toHexString(),access},configDB.secret);
-    user.tokens.push(access,token);
-    console.log(token);
+    console.log("Token:"+token);
+    return token;
 }
 
 // checking if hashed password is valid

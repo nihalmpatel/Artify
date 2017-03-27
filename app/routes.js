@@ -56,12 +56,14 @@ module.exports= function(app) {
     });
 
     app.get('/follow',function(req,res){
+        console.log(request.body.username);
         res.send('follow users!');
     });
 
     app.get('/stories',function(req,res){
         res.send('stories will available here.');
     });
+
 
     app.get('/new-story',function(req,res){
         res.render('new-story.ejs');
@@ -119,7 +121,7 @@ module.exports= function(app) {
 
     app.post('/login',function(req,res){
 
-        user.find({'local.username':req.body.username},function(err,users){
+        user.findOne({'local.username':req.body.username},function(err,users){
 
             if (err) throw err;
 
@@ -130,12 +132,11 @@ module.exports= function(app) {
 
             else{
                 
-                if(users[0].local.password===req.body.password){
+                if(users.local.password===req.body.password){
                     //res.send('Welcome '+req.body.username);
-                    console.log(users[0]);
+                    var token=users.generateToken();
                     console.log(users);
-                    console.log(users[0].methods.generateToken());
-                    
+                    users.save();
                     res.redirect('/new-story');
                 }
 
