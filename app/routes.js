@@ -134,7 +134,7 @@ module.exports= function(app) {
                 
                 if(users.local.password===req.body.password){
                     //res.send('Welcome '+req.body.username);
-                    var token=users.generateToken();
+                    var token=users.generateAuthToken();
                     console.log(users);
                     users.save();
                     res.redirect('/new-story');
